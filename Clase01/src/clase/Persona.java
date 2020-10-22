@@ -1,10 +1,15 @@
 package clase;
 
-public class Persona {
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Hashtable;
+
+public class Persona implements Comparable<Persona>{
 	private String nombre;
 	private String apellido;
 	private Integer dni;
 
+	
 	//Constructor por defecto
 	public Persona() {
 
@@ -21,7 +26,7 @@ public class Persona {
 		return this.nombre + " " + this.apellido;
 	}
 	
-	@Override
+	/*@Override
 	public boolean equals(Object o) {
 		if(o==null) {
 			return false;
@@ -53,7 +58,7 @@ public class Persona {
 		resultado += primo*this.nombre.hashCode();
 		resultado += primo*this.apellido.hashCode();
 		return resultado;
-	}
+	}*/
 	
 	public void setNombre(String nombre) {
 		 this.nombre = nombre;
@@ -70,6 +75,12 @@ public class Persona {
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+	}
+
+	@Override
+	public int compareTo(Persona arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 
