@@ -1,9 +1,9 @@
 package program;
 
 public class Persona {
-	public String nombre;
-	public String apellido;
-	public Integer dni;
+	private String nombre;
+	private String apellido;
+	private Integer dni;
 	
 	public String getNombre() {
 		return nombre;

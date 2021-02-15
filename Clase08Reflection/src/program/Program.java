@@ -46,11 +46,11 @@ public class Program {
 		
 		
 		
-		Field [] attrs = c.getFields();
+		Field [] attrs = c.getDeclaredFields();
 		
 		//Ejecutar los set
 		for(Field f:attrs) {
-			
+			f.setAccessible(true);
 			String nombreAt = f.getName();
 			String nombreSetter = "set" + nombreAt;
 			
@@ -59,6 +59,7 @@ public class Program {
 			
 			//Buscar los set
 			for(Method m:metodos) {
+				m.setAccessible(true);
 				//Buscar el nombre
 				if(m.getName().equalsIgnoreCase(nombreSetter)) {
 					
@@ -82,7 +83,8 @@ public class Program {
 		
 		//Ejecutar los get
 		for(Field f:attrs) {
-			
+			f.setAccessible(true);
+			System.out.println(f.get(p));
 			String nombreAt = f.getName();
 			String nombreGetter = "get" + nombreAt;
 			
@@ -90,6 +92,7 @@ public class Program {
 			
 			//Buscar los get
 			for(Method m:metodos) {
+				m.setAccessible(true);
 				if(m.getName().equalsIgnoreCase(nombreGetter)) {
 					//Invocar los get
 					Object o = m.invoke(p, null);
